@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import { api } from './routes/index.js'
+import { api } from './routes/index.js';
 
 const app = express();
 const PORT = process.env.port || 3001;
@@ -17,11 +17,11 @@ app.get('/', (req, res) =>
 
 app.get('/notes', (req, res) => 
   res.sendFile(path.join(path.dirname('.'), 'public', 'notes.html'), { root: path.join(path.dirname('.'))})
-)
+);
 
 app.get('*', (req, res) => 
   res.sendFile(path.join(path.dirname('.'), 'public', '404.html'), { root: path.join(path.dirname('.'))})
-)
+);
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 👁`)
